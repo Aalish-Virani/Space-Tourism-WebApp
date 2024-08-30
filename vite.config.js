@@ -8,5 +8,5 @@ export default defineConfig({
   server: {
     host: '0.0.0.0'
   },
-  base:"/Space-Tourism-WebApp/",
+  // base:"/Space-Tourism-WebApp/",
 });
