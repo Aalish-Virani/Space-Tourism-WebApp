@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
+import home from "../../../public/assets/home/background-home-desktop.jpg"
+
 const images = {
-  "home-desktop": "/public/assets/home/Background-home-desktop.jpg",
-  "home-tablet": "/public/assets/home/Background-home-tablet.jpg",
-  "home-mobile": "/public/assets/home/Background-home-mobile.jpg",
+  "home-desktop": "/public/assets/home/background-home-desktop.jpg",
+  "home-tablet": "/public/assets/home/background-home-tablet.jpg",
+  "home-mobile": home,
 
   "destination-desktop":
     "../src/assets/destination/background-destination-desktop.jpg",
