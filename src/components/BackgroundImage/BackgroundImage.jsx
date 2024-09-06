@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const images = {
-  "home-desktop": "assets/home/background-home-desktop.jpg",
-  "home-tablet": "assets/home/background-home-tablet.jpg",
-  "home-mobile": "assets/home/background-home-mobile.jpg",
+  "home-desktop": "/assets/home/background-home-desktop.jpg",
+  "home-tablet": "/assets/home/background-home-tablet.jpg",
+  "home-mobile": "/assets/home/background-home-mobile.jpg",
 
   "destination-desktop":
     "../src/assets/destination/background-destination-desktop.jpg",
