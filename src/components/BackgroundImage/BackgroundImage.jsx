@@ -1,12 +1,26 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import home from "../../../public/assets/home/background-home-desktop.jpg"
+import homeDesktop from "../../assets/home/background-home-desktop.jpg"
+import homeTablet from "../../assets/home/background-home-tablet.jpg"
+import homeMobile from "../../assets/home/background-home-mobile.jpg"
+
+import destinationDesktop from "../../assets/destination/background-destination-desktop.jpg"
+import destinationTablet from "../../assets/destination/background-destination-tablet.jpg"
+import destinationMobile from "../../assets/destination/background-destination-mobile.jpg"
+
+import crewDesktop from "../../assets/crew/background-crew-desktop.jpg"
+import crewTablet from "../../assets/crew/background-crew-tablet.jpg"
+import crewMobile from "../../assets/crew/background-crew-mobile.jpg"
+
+import technologyDesktop from "../../assets/technology/background-technology-desktop.jpg"
+import technologyTablet from "../../assets/technology/background-technology-tablet.jpg"
+import technologyMobile from "../../assets/technology/background-technology-mobile.jpg"
 
 const images = {
-  "home-desktop": "../../../public/assets/home/background-home-desktop.jpg",
-  "home-tablet": "/public/assets/home/background-home-tablet.jpg",
-  "home-mobile": home,
+  "home-desktop": homeDesktop,
+  "home-tablet": homeTablet,
+  "home-mobile": homeMobile,
 
   "destination-desktop":
     "../src/assets/destination/background-destination-desktop.jpg",
