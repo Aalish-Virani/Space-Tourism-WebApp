@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import React, { Children, useEffect } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import UnderlinedIndicators from "../../components/UnderlinedIndicators/UnderlinedIndicators";
@@ -15,19 +17,25 @@ const Destination = React.memo(({ data }) => {
     { name: "Titan", route: "/3" },
   ];
 
-  
   return (
-    <div className=" w-full mx-auto  grid place-items-center px-6 pb-7 gap-5 | sm:px-20 | md:px-[max(36px,4.5vw)] md:pt-5 md:pb-6 md:gap-8 | lg:px-0 lg:pt-0 lg:pb-0 lg:gap-0 lg:grid-rows-12 lg:grid-cols-9 lg:justify-items-start lg:items-center">
+    <motion.section className=" w-full mx-auto  grid place-items-center px-6 pb-7 gap-5 | sm:px-20 | md:px-[max(36px,4.5vw)] md:pt-5 md:pb-6 md:gap-8 | lg:px-0 lg:pt-0 lg:pb-0 lg:gap-0 lg:grid-rows-12 lg:grid-cols-9 lg:justify-items-start lg:items-center">
       <div className="order-1 | md:justify-self-start md:ps-0.5 | lg:row-start-1 lg:row-span-1 lg:col-start-2 lg:col-span-full | xl:row-start-1 xl:row-span-2">
         <PageTitle pageNumber="01" pageHeading="Pick Your Destination" />
       </div>
-      <picture className="order-2 |  pt-3 pb-0.5 | md:pt-7 md:pb-1.5 | lg:py-0 lg:pt-0 lg:row-start-2 lg:row-end-12 lg:col-start-2 lg:col-span-3 lg:justify-self-end | xl:row-start-3 xl:row-end-12 ">
+
+      <motion.picture
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="order-2 |  pt-3 pb-0.5 | md:pt-7 md:pb-1.5 | lg:py-0 lg:pt-0 lg:row-start-2 lg:row-end-12 lg:col-start-2 lg:col-span-3 lg:justify-self-end | xl:row-start-3 xl:row-end-12 "
+      >
+        {console.log(`${id}`)}
         <img
           className="aspect-square min-h-[170px] h-[20vh] max-h-[200px] | sm:min-h-[200px] sm:h-[25vh] sm:max-h-[260px] | md:min-h-[300px] md:h-[300px] md:max-h-[300px] | lg:min-h-[300px] lg:h-[50vh] lg:max-h-[345px] | xl:min-h-[415px] xl:h-[49.5vh] xl:max-h-[460px] "
           src={data[id].images.webp}
           alt="Image"
         />
-      </picture>
+      </motion.picture>
       <nav className="order-3 | lg:row-start-2 lg:row-span-1 lg:col-start-6 lg:col-span-3  |  xl:row-start-2 xl:row-span-2">
         <UnderlinedIndicators baseRoute="/destination" destinations={planets} />
       </nav>
@@ -64,7 +72,7 @@ const Destination = React.memo(({ data }) => {
           </div>
         </section>
       </article>
-    </div>
+    </motion.section>
   );
 });
 

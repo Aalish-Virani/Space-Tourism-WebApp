@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
+
 import React from "react";
 import DottedSlider from "../../components/DottedSlider/DottedSlider";
 import { Outlet, useParams } from "react-router-dom";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
-const Crew = React.memo ( ({ data }) => {
+const Crew = React.memo(({ data }) => {
   const { id = "0" } = useParams();
 
   const crew = [
@@ -13,7 +15,7 @@ const Crew = React.memo ( ({ data }) => {
     { name: "Titan", route: "/3" },
   ];
 
-  const crewImage = import (`${data[id].images.webp}`)
+  const crewImage = import(`${data[id].images.webp}`);
 
   return (
     <section className="w-full grid  | gap-8 px-6 items-start justify-items-center | sm:px-20 |  md:gap-10 md:px-9 md:items-center | lg:gap-0 lg:px-0 lg:py-0 lg:grid-rows-12 lg:grid-cols-9 lg:items-center lg:justify-items-start | ">
@@ -40,16 +42,18 @@ const Crew = React.memo ( ({ data }) => {
         <DottedSlider destinations={crew} baseRoute={"/crew"} />
       </nav>
 
-      <picture className=" order-2 w-full py-[1px] border-b border-secondary border-opacity-25 | md:order-4 md:self-end md:border-none | lg:order-none  lg:row-start-1 lg:row-span-full lg:col-end-10 lg:col-span-4 ">
-        <img
+      <motion.picture className=" overflow-hidden order-2 w-full py-[1px] border-b border-secondary border-opacity-25 | md:order-4 md:self-end md:border-none | lg:order-none  lg:row-start-1 lg:row-span-full lg:col-end-10 lg:col-span-4 ">
+        <motion.img
+          initial={{ y: 100, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 3 }}
           src={`${data[id].images.webp}`}
           className="mx-auto min-h-56 h-[30vh] | md:min-h-[532px] md:h-[50vh] | lg:mx-0 lg:me-auto lg:min-h-[450px] lg:h-[75vh] lg:max-h-[615px] | xl:min-h-[550px] xl:max-h-[760px] "
           alt=""
         />
-      </picture>
+      </motion.picture>
     </section>
   );
-}
-)
+});
 
 export default Crew;

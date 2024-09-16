@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import ExploreButton from "../../components/ExploreButton/ExploreButton";
 
@@ -20,9 +21,14 @@ export default function Home() {
         </p>
       </article>
 
-      <div className=" | py-6  md:py-0  lg:grid lg:place-items-end">
+      <motion.div
+        initial={{ opacity: 0.9, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1 }}
+        className=" | py-6  md:py-0  lg:grid lg:place-items-end"
+      >
         <ExploreButton />
-      </div>
+      </motion.div>
     </section>
   );
 }
