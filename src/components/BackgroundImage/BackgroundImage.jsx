@@ -22,23 +22,18 @@ const images = {
   "home-tablet": homeTablet,
   "home-mobile": homeMobile,
 
-  "destination-desktop":
-    "../src/assets/destination/background-destination-desktop.jpg",
-  "destination-tablet":
-    "../src/assets/destination/background-destination-tablet.jpg",
-  "destination-mobile":
-    "../src/assets/destination/background-destination-mobile.jpg",
+  "destination-desktop": destinationDesktop,
+  "destination-tablet": destinationTablet,
+  "destination-mobile": destinationMobile,
 
-  "technology-desktop":
-    "../src/assets/technology/background-technology-desktop.jpg",
-  "technology-tablet":
-    "../src/assets/technology/background-technology-tablet.jpg",
-  "technology-mobile":
-    "../src/assets/technology/background-technology-mobile.jpg",
+  "crew-desktop": crewDesktop,
+  "crew-tablet": crewTablet,
+  "crew-mobile": crewMobile,
 
-  "crew-desktop": "../src/assets/crew/background-crew-desktop.jpg",
-  "crew-tablet": "../src/assets/crew/background-crew-tablet.jpg",
-  "crew-mobile": "../src/assets/crew/background-crew-mobile.jpg",
+  "technology-desktop": technologyDesktop,
+  "technology-tablet": technologyTablet,
+  "technology-mobile": technologyMobile,
+
 };
 
 const BackgroundImage = () => {
