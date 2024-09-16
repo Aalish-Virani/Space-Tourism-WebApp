@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-
-
 import React, { Children, useEffect } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import UnderlinedIndicators from "../../components/UnderlinedIndicators/UnderlinedIndicators";
@@ -18,6 +15,7 @@ const Destination = React.memo(({ data }) => {
     { name: "Titan", route: "/3" },
   ];
 
+  
   return (
     <div className=" w-full mx-auto  grid place-items-center px-6 pb-7 gap-5 | sm:px-20 | md:px-[max(36px,4.5vw)] md:pt-5 md:pb-6 md:gap-8 | lg:px-0 lg:pt-0 lg:pb-0 lg:gap-0 lg:grid-rows-12 lg:grid-cols-9 lg:justify-items-start lg:items-center">
       <div className="order-1 | md:justify-self-start md:ps-0.5 | lg:row-start-1 lg:row-span-1 lg:col-start-2 lg:col-span-full | xl:row-start-1 xl:row-span-2">

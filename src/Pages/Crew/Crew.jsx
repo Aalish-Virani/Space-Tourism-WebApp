@@ -3,7 +3,7 @@ import DottedSlider from "../../components/DottedSlider/DottedSlider";
 import { Outlet, useParams } from "react-router-dom";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
-const crew = React.memo ( ({ data }) => {
+const Crew = React.memo ( ({ data }) => {
   const { id = "0" } = useParams();
 
   const crew = [
@@ -52,4 +52,4 @@ const crew = React.memo ( ({ data }) => {
 }
 )
 
-export default crew;
+export default Crew;
