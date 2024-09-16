@@ -4,11 +4,10 @@ import NumberedSlider from "../../components/NumberedSlider/NumberedSlider";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-const Technology = React.memo(({ data }) => {
+const Technology = React.memo ( ({ data }) => {
   const { id = "0" } = useParams();
 
   const technologies = [];
-  const backgroundImage = [];
 
   for (let index = 0; index < 3; index++) {
     technologies.push({
@@ -41,19 +40,21 @@ const Technology = React.memo(({ data }) => {
         </p>
       </article>
 
-      {/* mobile image */}
+{/* mobile image */}
       <picture
-        style={{ backgroundImage: `${data[id].images.landscape}` }}
+        style={{ backgroundImage: `url(${data[id].images.landscape})` }}
         className=" | order-2 w-full min-h-[170px] h-[24vh] mx-auto my-3 bg-cover bg-no-repeat bg-center | sm:min-h-[310px] sm:h-[30.25vh] |  md:mt-4 md:mb-3 | lg:hidden "
       ></picture>
 
-      {/* desktop image */}
+{/* desktop image */}
       <picture
-        style={{ backgroundImage: `${data[id].images.portrait}` }}
+        style={{ backgroundImage: `url(${data[id].images.portrait})` }}
         className="hidden  | lg:block w-full h-full   bg-contain bg-no-repeat bg-right lg:row-start-3 lg:row-end-11 lg:col-end-11 lg:col-span-4 lg:min-h-[350px] lg:max-h-[550px]"
       ></picture>
+
     </div>
   );
-});
+}
+)
 
 export default Technology;
