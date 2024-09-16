@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react';
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -6,36 +5,17 @@ import homeDesktop from "../../assets/home/background-home-desktop.jpg";
 import homeTablet from "../../assets/home/background-home-tablet.jpg";
 import homeMobile from "../../assets/home/background-home-mobile.jpg";
 
+import destinationDesktop from "../../assets/destination/background-destination-desktop.jpg";
+import destinationTablet from "../../assets/destination/background-destination-tablet.jpg";
+import destinationMobile from "../../assets/destination/background-destination-mobile.jpg";
 
-const destinationDesktop = lazy(() =>
-  import("../../assets/destination/background-destination-desktop.jpg")
-);
-const destinationTablet = lazy(() =>
-  import("../../assets/destination/background-destination-tablet.jpg")
-);
-const destinationMobile = lazy(() =>
-  import("../../assets/destination/background-destination-mobile.jpg")
-);
+import crewDesktop from "../../assets/crew/background-crew-desktop.jpg";
+import crewTablet from "../../assets/crew/background-crew-tablet.jpg";
+import crewMobile from "../../assets/crew/background-crew-mobile.jpg";
 
-const crewDesktop = lazy(() =>
-  import("../../assets/crew/background-crew-desktop.jpg")
-);
-const crewTablet = lazy(() =>
-  import("../../assets/crew/background-crew-tablet.jpg")
-);
-const crewMobile = lazy(() =>
-  import("../../assets/crew/background-crew-mobile.jpg")
-);
-
-const technologyDesktop = lazy(() =>
-  import("../../assets/technology/background-technology-desktop.jpg")
-);
-const technologyTablet = lazy(() =>
-  import("../../assets/technology/background-technology-tablet.jpg")
-);
-const technologyMobile = lazy(() =>
-  import("../../assets/technology/background-technology-mobile.jpg")
-);
+import technologyDesktop from "../../assets/technology/background-technology-desktop.jpg";
+import technologyTablet from "../../assets/technology/background-technology-tablet.jpg";
+import technologyMobile from "../../assets/technology/background-technology-mobile.jpg";
 
 const images = {
   "home-desktop": homeDesktop,
@@ -58,7 +38,7 @@ const images = {
 
 const BackgroundImage = () => {
   const location = useLocation();
-  // const imagesPreloaded = useRef(false);
+  const imagesPreloaded = useRef(false);
 
   const getScreenSize = () => {
     if (window.innerWidth >= 1024) return "desktop";
@@ -66,15 +46,15 @@ const BackgroundImage = () => {
     return "mobile";
   };
 
-  // const preloadImages = () => {
-  //   if (!imagesPreloaded.current) {
-  //     Object.values(images).forEach((src) => {
-  //       const img = new Image();
-  //       img.src = src;
-  //     });
-  //     imagesPreloaded.current = true;
-  //   }
-  // };
+  const preloadImages = () => {
+    if (!imagesPreloaded.current) {
+      Object.values(images).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+      imagesPreloaded.current = true;
+    }
+  };
 
   const setBackground = () => {
     const screenSize = getScreenSize();
@@ -84,7 +64,7 @@ const BackgroundImage = () => {
 
     if (path === "/") {
       backgroundImage = images[`home-${screenSize}`];
-        // preloadImages();
+        preloadImages();
     } else if (path.startsWith("/destination")) {
       backgroundImage = images[`destination-${screenSize}`];
     } else if (path.startsWith("/crew")) {
