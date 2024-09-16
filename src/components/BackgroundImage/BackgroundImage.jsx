@@ -64,7 +64,6 @@ const BackgroundImage = () => {
 
     if (path === "/") {
       backgroundImage = images[`home-${screenSize}`];
-      preloadImages();
     } else if (path.startsWith("/destination")) {
       backgroundImage = images[`destination-${screenSize}`];
     } else if (path.startsWith("/crew")) {
@@ -75,8 +74,11 @@ const BackgroundImage = () => {
       backgroundImage = "none";
     }
 
+    
     document.body.className = `bg-slate-950 transition-opacity min-h-screen duration-500 ease-in-out  bg-center bg-cover bg-no-repeat opacity-100 after:opacity-0 after:transition-opacity`;
     document.body.style.backgroundImage = `url(${backgroundImage})`;
+
+    preloadImages();
   };
 
   useEffect(() => {

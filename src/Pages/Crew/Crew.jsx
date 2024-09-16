@@ -3,7 +3,7 @@ import DottedSlider from "../../components/DottedSlider/DottedSlider";
 import { Outlet, useParams } from "react-router-dom";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
-export default function Crew({ data }) {
+const crew = React.memo ( ({ data }) => {
   const { id = "0" } = useParams();
 
   const crew = [
@@ -13,8 +13,11 @@ export default function Crew({ data }) {
     { name: "Titan", route: "/3" },
   ];
 
+  const crewImage = import (`${data[id].images.webp}`)
+
   return (
     <section className="w-full grid  | gap-8 px-6 items-start justify-items-center | sm:px-20 |  md:gap-10 md:px-9 md:items-center | lg:gap-0 lg:px-0 lg:py-0 lg:grid-rows-12 lg:grid-cols-9 lg:items-center lg:justify-items-start | ">
+      {console.log("crew")}
       <div className=" order-1 | md:py-5 md:justify-self-start | lg:order-none lg:row-start-1 lg:row-span-2 lg:col-start-2 lg:col-span-4 | xl:row-start-1 xl:row-span-2 ">
         <PageTitle pageNumber="02" pageHeading="meet your crew" />
       </div>
@@ -47,3 +50,6 @@ export default function Crew({ data }) {
     </section>
   );
 }
+)
+
+export default crew;

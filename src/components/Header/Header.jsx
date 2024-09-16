@@ -25,7 +25,6 @@ const Header = React.memo( () => {
   return (
     
     <header className="py-6 md:py-0 md:pb-5 lg:py-7 xl:py-10 | font-primary text-primary tracking-3xl flex items-center justify-between">
-      {console.log("header")}
       <NavLink to={"/"} className="px-6 md:px-9 lg:px-14">
         <img className="aspect-square h-10 md:h-12" src={Logo} alt="logo" />
       </NavLink>
