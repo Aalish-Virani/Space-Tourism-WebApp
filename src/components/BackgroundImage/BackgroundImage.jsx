@@ -8,13 +8,13 @@ import homeMobile from "../../assets/home/background-home-mobile.jpg";
 
 
 const destinationDesktop = lazy(() =>
-  import("../../assets/destination/background-destination-desktop.jpg")
+  import("../../assets/destination/background-destination-desktop.jpg");
 );
 const destinationTablet = lazy(() =>
-  import("../../assets/destination/background-destination-tablet.jpg")
+  import("../../assets/destination/background-destination-tablet.jpg");
 );
 const destinationMobile = lazy(() =>
-  import("../../assets/destination/background-destination-mobile.jpg")
+  import("../../assets/destination/background-destination-mobile.jpg");
 );
 
 const crewDesktop = lazy(() =>
