@@ -1,19 +1,24 @@
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import homeDesktop from "../../assets/home/background-home-desktop.jpg";
-import homeTablet from "../../assets/home/background-home-tablet.jpg";
-import homeMobile from "../../assets/home/background-home-mobile.jpg";
-
+const homeDesktop = lazy(() =>
+  import("../../assets/home/background-home-desktop.jpg")
+);
+const homeTablet = lazy(() =>
+  import("../../assets/home/background-home-tablet.jpg")
+);
+const homeMobile = lazy(() =>
+  import("../../assets/home/background-home-mobile.jpg")
+);
 
 const destinationDesktop = lazy(() =>
-  import("../../assets/destination/background-destination-desktop.jpg");
+  import("../../assets/destination/background-destination-desktop.jpg")
 );
 const destinationTablet = lazy(() =>
-  import("../../assets/destination/background-destination-tablet.jpg");
+  import("../../assets/destination/background-destination-tablet.jpg")
 );
 const destinationMobile = lazy(() =>
-  import("../../assets/destination/background-destination-mobile.jpg");
+  import("../../assets/destination/background-destination-mobile.jpg")
 );
 
 const crewDesktop = lazy(() =>
@@ -83,7 +88,7 @@ const BackgroundImage = () => {
 
     if (path === "/") {
       backgroundImage = images[`home-${screenSize}`];
-      // preloadImages();
+      preloadImages();
     } else if (path.startsWith("/destination")) {
       backgroundImage = images[`destination-${screenSize}`];
     } else if (path.startsWith("/crew")) {
