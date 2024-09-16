@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react';
 import React, { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -84,7 +83,7 @@ const BackgroundImage = () => {
 
     if (path === "/") {
       backgroundImage = images[`home-${screenSize}`];
-        // preloadImages();
+      // preloadImages();
     } else if (path.startsWith("/destination")) {
       backgroundImage = images[`destination-${screenSize}`];
     } else if (path.startsWith("/crew")) {
