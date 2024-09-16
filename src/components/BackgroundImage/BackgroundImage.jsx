@@ -18,13 +18,9 @@ import technologyTablet from "../../assets/technology/background-technology-tabl
 import technologyMobile from "../../assets/technology/background-technology-mobile.jpg";
 
 const images = {
-  // "home-desktop": homeDesktop,
-  // "home-tablet": homeTablet,
-  // "home-mobile": homeMobile,
-
-  "home-desktop": "../src/assets/home/background-home-desktop.jpg",
-  "home-tablet": "../src/assets/home/background-home-tablet.jpg",
-  "home-mobile": "../src/assets/home/background-home-mobile.jpg",
+  "home-desktop": homeDesktop,
+  "home-tablet": homeTablet,
+  "home-mobile": homeMobile,
 
   "destination-desktop": destinationDesktop,
   "destination-tablet": destinationTablet,
