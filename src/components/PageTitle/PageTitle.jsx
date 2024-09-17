@@ -9,9 +9,9 @@ const PageTitle = React.memo(({ pageNumber, pageHeading }) => {
           {pageNumber}
         </span>
         <motion.span
-        initial = {{opacity:0.5, scale:0.95}}
-        animate = {{opacity:1, scale:1}}
-        transition={ {duration:1.5}}
+        initial={{ opacity: 0.9, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.15 }}
         className="inline-block"
         >{pageHeading}</motion.span>
       </h1>
