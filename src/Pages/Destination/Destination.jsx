@@ -1,14 +1,21 @@
 import { motion } from "framer-motion";
 
-import React, { Children, useEffect } from "react";
+import React, { Children, useEffect, useRef } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import UnderlinedIndicators from "../../components/UnderlinedIndicators/UnderlinedIndicators";
 
 import { useNavigate, useParams } from "react-router-dom";
+import usePrevious from "../../CustomHooks/UsePrevious";
+import UseIsMobile from "../../CustomHooks/UseIsMobile";
 
 const Destination = React.memo(({ data }) => {
   const navigate = useNavigate();
+
   const { id = "0" } = useParams();
+
+  const prevPage = usePrevious(id);
+
+  const isMobile = UseIsMobile();
 
   const planets = [
     { name: "Moon", route: "" },
@@ -28,7 +35,7 @@ const Destination = React.memo(({ data }) => {
         initial={{ opacity: 0.25 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1,
-          duration: window.innerWidth < 768 ? `0.55` : `0.4`,
+          duration: isMobile ? `0.55` : `0.4`,
         }}
         key={id}
         className="order-2 |  pt-3 pb-0.5 | md:pt-7 md:pb-1.5 | lg:py-0 lg:pt-0 lg:row-start-2 lg:row-end-12 lg:col-start-2 lg:col-span-3 lg:justify-self-end | xl:row-start-3 xl:row-end-12 "
@@ -73,7 +80,7 @@ const Destination = React.memo(({ data }) => {
 
         {/* section line */}
         <motion.div
-          initial={{ x: "-100%" }}
+          initial={ (prevPage != undefined && id<prevPage) ? {x: "100%"} : {x: "-100%"} }
           animate={{ x: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
           key={id}
@@ -102,13 +109,12 @@ const Destination = React.memo(({ data }) => {
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: window.innerWidth < 768 ? `0.55` : `0.4`,
+              delay: isMobile ? `0.55` : `0.4`,
               duration: 0.15,
             }}
             key={id+1}
             className=""
           >
-            {console.log(id)}
 
             <h3 className="overflow-hidden pb-3 font-primary text-secondary  uppercase  text-xs tracking-xl">
               est. travel time
