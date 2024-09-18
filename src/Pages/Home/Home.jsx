@@ -8,7 +8,7 @@ export default function Home() {
       <motion.article
       initial ={{opacity:0.1}}
       animate={{opacity:1}}
-      transition={{duration:0.15}}
+      transition={{duration:0.2}}
       className=" | text-center lg:text-start">
         <h1 className="text-secondary font-primary uppercase  text-base tracking-2xl  sm:text-xl sm:tracking-3xl  xl:text-4xl">
           So, You want to travel to
@@ -28,7 +28,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0.9, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.15 }}
+        transition={{ delay: 0.1, duration:0.1 }}
         className=" | py-6  md:py-0  lg:grid lg:place-items-end"
       >
         <ExploreButton />
