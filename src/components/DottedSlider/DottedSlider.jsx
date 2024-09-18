@@ -13,8 +13,10 @@ export default function DottedSlider({ baseRoute, destinations }) {
               to={`${baseRoute}${destination.route}`}
               end
               className={({ isActive }) =>
-                `block bg-primary aspect-square rounded-full  h-[10px]  xl:h-[15px] ${
-                  isActive ? "opacity-100" : "opacity-20"
+                `block box-content bg-primary aspect-square rounded-full h-2 xl:h-3 border border-primary ${
+                  isActive
+                    ? "opacity-100 border-opacity-100"
+                    : "bg-opacity-20 border-opacity-0 hover:border-opacity-50"
                 } `
               }
             ></NavLink>
