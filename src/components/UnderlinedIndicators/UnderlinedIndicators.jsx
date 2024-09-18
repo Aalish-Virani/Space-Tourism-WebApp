@@ -1,9 +1,16 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const UnderlinedIndicators = (({ baseRoute, destinations }) => {
+const UnderlinedIndicators = React.memo(({ baseRoute, destinations }) => {
+
   return (
-    <>
+    <motion.div
+    initial={{opacity:0.25}}
+    animate={{opacity:1}}
+    transition={{duration:0.2}}
+    >
+      
       <ul className="flex  py-3 gap-7 | sm:gap-8 | md:py-4 md:gap-9  ">
         {destinations.map((destination, index) => (
           <li
@@ -26,7 +33,7 @@ const UnderlinedIndicators = (({ baseRoute, destinations }) => {
           </li>
         ))}
       </ul>
-    </>
+    </motion.div>
   );
 });
 
