@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -32,16 +34,21 @@ const Header = React.memo( () => {
       {/* header line */}
       <div className="hidden lg:block absolute left-36 right-0 ml-2 mr-[58vw] xl:left-40 xl:ml-10 xl:mr-[57vw] h-px z-20 bg-primary opacity-25 backdrop-blur-lg"></div>
 
-      <button onClick={toggleNav} className="px-6 z-20 md:hidden">
+      <motion.button
+      initial ={{opacity:0}}
+      animate = {{opacity:1}}
+      transition={{duration:0.3}}
+      key={isNavOpen}
+      onClick={toggleNav} className="px-6 z-20 md:hidden">
         <img
           src={NavOpenBtn}
-          className={`${isNavOpen ? "hidden" : "block"} aspect-square`}
+          className={`${!isNavOpen ? "block" : "hidden"} aspect-square`}
         />
         <img
           src={NavCloseBtn}
           className={`${isNavOpen ? "block" : "hidden"} aspect-square`}
         />
-      </button>
+      </motion.button>
 
       <nav
         className={`z-10 fixed inset-0 md:static  ${
