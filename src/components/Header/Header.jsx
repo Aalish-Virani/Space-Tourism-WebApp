@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import Logo from "../../assets/shared/logo.svg";
 import NavOpenBtn from "../../assets/shared/icon-hamburger.svg";
 import NavCloseBtn from "../../assets/shared/icon-close.svg";
 
-const Header = React.memo( () => {
+import UsePreloadImages from "../../CustomHooks/UsePreloadImages";
 
+import data from "../../data.json";
+
+const Header = React.memo(() => {
   const pages = [
     { name: "Home", route: "/" },
     { name: "Destination", route: "/destination" },
@@ -16,7 +19,36 @@ const Header = React.memo( () => {
     { name: "Technology", route: "/technology" },
   ];
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768 ? true : false) 
+  const [images, setImages] = useState([]);
+
+  const loadImages = (pageNumber) => {
+    const newImages = [];
+    const page = data[Object.keys(data)[pageNumber]];
+
+    for (let items in page) {
+      const image = page[items].images;
+
+      for (let index in image) {
+        newImages.push(image[index]);
+      }
+    }
+    setImages(newImages);
+  };
+
+    useEffect(() => {
+      const preloadImage = (src) => {
+        const img = new Image();
+        img.src = src;
+      };
+
+      images.forEach((image) => preloadImage(image));
+
+      return () => {};
+    }, [images]);
+
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth < 768 ? true : false
+  );
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -25,7 +57,6 @@ const Header = React.memo( () => {
   };
 
   return (
-    
     <header className="py-6 md:py-0 md:pb-5 lg:py-7 xl:py-10 | font-primary text-primary tracking-3xl flex items-center justify-between">
       <NavLink to={"/"} className="px-6 md:px-9 lg:px-14">
         <img className="aspect-square h-10 md:h-12" src={Logo} alt="logo" />
@@ -35,11 +66,13 @@ const Header = React.memo( () => {
       <div className="hidden lg:block absolute left-36 right-0 ml-2 mr-[58vw] xl:left-40 xl:ml-10 xl:mr-[57vw] h-px z-20 bg-primary opacity-25 backdrop-blur-lg"></div>
 
       <motion.button
-      initial ={{opacity:0}}
-      animate = {{opacity:1}}
-      transition={{duration:0.3}}
-      key={isNavOpen}
-      onClick={toggleNav} className="px-6 z-20 md:hidden">
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        key={isNavOpen}
+        onClick={toggleNav}
+        className="px-6 z-20 md:hidden"
+      >
         <img
           src={NavOpenBtn}
           className={`${!isNavOpen ? "block" : "hidden"} aspect-square`}
@@ -62,6 +95,11 @@ const Header = React.memo( () => {
               className=" | font-primary text-primary uppercase text-base tracking-2xl md:text-xs md:tracking-xl lg:text-base lg:tracking-2xl xl:text-base xl:tracking-2xl"
             >
               <NavLink
+                onMouseOver={() => {
+                  if (index != 0) {
+                    loadImages(index - 1);
+                  }
+                }}
                 to={page.route}
                 onClick={isNavOpen ? toggleNav : ""}
                 className={({ isActive }) =>
@@ -81,7 +119,6 @@ const Header = React.memo( () => {
       </nav>
     </header>
   );
-}
-);
+});
 
 export default Header;
