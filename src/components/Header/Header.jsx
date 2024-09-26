@@ -35,16 +35,16 @@ const Header = React.memo(() => {
     setImages(newImages);
   };
 
-    useEffect(() => {
-      const preloadImage = (src) => {
-        const img = new Image();
-        img.src = src;
-      };
+  useEffect(() => {
+    const preloadImage = (src) => {
+      const img = new Image();
+      img.src = src;
+    };
 
-      images.forEach((image) => preloadImage(image));
+    images.forEach((image) => preloadImage(image));
 
-      return () => {};
-    }, [images]);
+    return () => {};
+  }, [images]);
 
   const [isMobile, setIsMobile] = useState(
     window.innerWidth < 768 ? true : false
@@ -76,6 +76,11 @@ const Header = React.memo(() => {
         <img
           src={NavOpenBtn}
           className={`${!isNavOpen ? "block" : "hidden"} aspect-square`}
+          onClick={() => {
+            loadImages(0);
+            loadImages(1);
+            loadImages(2);
+          }}
         />
         <img
           src={NavCloseBtn}
@@ -96,6 +101,11 @@ const Header = React.memo(() => {
             >
               <NavLink
                 onMouseOver={() => {
+                  if (index != 0) {
+                    loadImages(index - 1);
+                  }
+                }}
+                onFocus={() => {
                   if (index != 0) {
                     loadImages(index - 1);
                   }
