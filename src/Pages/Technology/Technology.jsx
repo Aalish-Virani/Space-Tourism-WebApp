@@ -45,7 +45,6 @@ const Technology = React.memo(({ data }) => {
           key={id}
           className=" | order-4 px-3 min-h-[220px] max-w-[400px] text-center | sm:min-h-[230px] sm:max-w-[500px] | md:px-40 md:min-h-[230px] md:max-w-[850px] | lg:px-0 lg:min-h-64 lg:max-w-[400px] lg:order-none lg:row-start-4 lg:row-end-10 lg:col-start-3 lg:col-span-4 lg:justify-self-start lg:text-start | xl:px-0 xl:min-h-[275px] xl:max-w-[500px] xl:row-start-4 xl:row-end-10 | 2xl:max-w-[520px]"
         >
-          {console.log(isDesktop)}
 
           <h3 className="font-primary text-secondary uppercase  text-xs tracking-xl  sm:text-base sm:tracking-2xl">
             THE TERMINOLOGY…
