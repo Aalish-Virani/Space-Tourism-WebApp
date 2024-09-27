@@ -113,10 +113,10 @@ const Header = React.memo(() => {
                 to={page.route}
                 onClick={isNavOpen ? toggleNav : ""}
                 className={({ isActive }) =>
-                  `  | border-primary md:py-[38px] md:border-b  ${
+                  `  | border-primary md:py-[38px] md:border-b focus:outline-none ${
                     isActive
-                      ? "border-opacity-100"
-                      : "border-opacity-0 hover:border-opacity-25"
+                      ? `border-opacity-100 ${(isMobile) ? "font-bold" : ""}`
+                      : "border-opacity-0 hover:border-opacity-25 focus:border-opacity-25"
                   }  `
                 }
               >

@@ -21,7 +21,7 @@ const UnderlinedIndicators = React.memo(({ baseRoute, destinations }) => {
               to={`${baseRoute}${destination.route}`}
               end
               className={({ isActive }) =>
-                `py-2  md:py-3  border-b-[3px] border-primary border-opacity-0 ${
+                `py-2  md:py-3  border-b-[3px] border-primary border-opacity-0 focus:outline-none ${
                   isActive
                     ? "text-primary border-opacity-100"
                     : "text-secondary hover:border-opacity-25 focus:border-opacity-25"

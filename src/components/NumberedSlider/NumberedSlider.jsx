@@ -10,10 +10,10 @@ export default function NumberedSlider({ baseRoute, destinations }) {
             to={`${baseRoute}${destination.route}`}
             end
             className={({ isActive }) =>
-              `grid place-items-center font-secondary border border-primary border-opacity-25   aspect-square rounded-full  h-10 text-base tracking-[1px]  sm:h-[60px] sm:text-2xl sm:tracking-[1.5px]  xl:h-20 xl:text-4xl xl:tracking-[2px] ${
+              `grid place-items-center font-secondary border border-primary border-opacity-25   aspect-square rounded-full  h-10 text-base tracking-[1px]  sm:h-[60px] sm:text-2xl sm:tracking-[1.5px]  xl:h-20 xl:text-4xl xl:tracking-[2px] focus:outline-none ${
                 isActive
                   ? "bg-primary text-primary-dark"
-                  : "bg-primary-dark text-primary bg-opacity-25 hover:border-opacity-75"
+                  : "bg-primary-dark text-primary bg-opacity-25 hover:border-opacity-75 focus:border-opacity-75"
               }`
             }
           >
