@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+// animation = m-0.7 d-0.55
+
+import { motion, AnimatePresence } from "framer-motion";
 
 import React, { Children, useEffect, useRef } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
@@ -32,10 +34,11 @@ const Destination = React.memo(({ data }) => {
 
       {/* planet image */}
       <motion.picture
-        initial={{ opacity: 0.25 }}
+        initial={{ opacity: 0.1 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.1,
-          duration: isMobile ? `0.55` : `0.4`,
+        transition={{
+          delay:0.1,
+          duration: 0.5,
         }}
         key={id}
         className="order-2 |  pt-3 pb-0.5 | md:pt-7 md:pb-1.5 | lg:py-0 lg:pt-0 lg:row-start-2 lg:row-end-12 lg:col-start-2 lg:col-span-3 lg:justify-self-end | xl:row-start-3 xl:row-end-12 "
@@ -80,7 +83,11 @@ const Destination = React.memo(({ data }) => {
 
         {/* section line */}
         <motion.div
-          initial={ (prevPage != undefined && id<prevPage) ? {x: "100%"} : {x: "-100%"} }
+          initial={
+            prevPage != undefined && id < prevPage
+              ? { x: "100%" }
+              : { x: "-100%" }
+          }
           animate={{ x: 0 }}
           transition={{ delay: 0.1, duration: 0.3 }}
           key={id}
@@ -112,10 +119,9 @@ const Destination = React.memo(({ data }) => {
               delay: isMobile ? `0.55` : `0.4`,
               duration: 0.15,
             }}
-            key={id+1}
+            key={id + 1}
             className=""
           >
-
             <h3 className="overflow-hidden pb-3 font-primary text-secondary  uppercase  text-xs tracking-xl">
               est. travel time
             </h3>
