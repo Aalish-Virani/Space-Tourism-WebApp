@@ -1,6 +1,9 @@
 🚀 Space Tourism Website
-This is a responsive multi-page space tourism website developed as part of a challenge in collaboration with Scrimba and Kevin Powell. 
-The project showcases advanced web development techniques using React.js, React Router, Tailwind CSS, and Framer Motion, and focuses on efficient handling of data and images for performance optimization.
+This is a responsive multi-page Space Tourism website developed as part of a challenge in collaboration with Scrimba and Kevin Powell. The project demonstrates advanced web development techniques using:
+
+🛠 React.js, React Router, Tailwind CSS, and Framer Motion 🎨✨
+
+It focuses on efficient data handling, image optimization, and smooth animations for an immersive user experience.
 
 🌟 Features
 Dynamic Content Rendering: Integrated local data.json file to dynamically fetch and render content for destinations, crew, and technology pages.
